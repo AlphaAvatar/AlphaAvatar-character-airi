@@ -22,6 +22,9 @@ import '@unocss/reset/tailwind.css'
 import './styles/main.css'
 import 'uno.css'
 
+import LivekitAvatar from './pages/LivekitAvatar.vue'
+
+
 const pinia = createPinia()
 // TODO: vite-plugin-vue-layouts is long deprecated, replace with another layout solution
 const routeRecords = setupLayouts(routes as RouteRecordRaw[])
@@ -31,6 +34,12 @@ if (import.meta.env.VITE_APP_TARGET_HUGGINGFACE_SPACE)
   router = createRouter({ routes: routeRecords, history: createWebHashHistory() })
 else
   router = createRouter({ routes: routeRecords, history: createWebHistory() })
+
+router.addRoute({
+  path: '/livekit-avatar',
+  name: 'livekit-avatar',
+  component: LivekitAvatar,
+} as RouteRecordRaw)
 
 router.beforeEach((to, from) => {
   if (to.path !== from.path)

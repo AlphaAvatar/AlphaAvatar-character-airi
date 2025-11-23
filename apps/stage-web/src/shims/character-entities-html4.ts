@@ -1,0 +1,1 @@
+export const characterEntitiesHtml4: Record<string, string> = {}

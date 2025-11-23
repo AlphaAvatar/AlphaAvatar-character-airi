@@ -53,6 +53,10 @@ export default defineConfig({
       '@proj-airi/stage-ui': resolve(join(import.meta.dirname, '..', '..', 'packages', 'stage-ui', 'src')),
       '@proj-airi/stage-pages': resolve(join(import.meta.dirname, '..', '..', 'packages', 'stage-pages', 'src')),
       '@proj-airi/stage-shared': resolve(join(import.meta.dirname, '..', '..', 'packages', 'stage-shared', 'src')),
+      'character-entities-html4': resolve(
+        __dirname,
+        "src/shims/character-entities-html4.ts",
+      ),
     },
   },
   server: {
