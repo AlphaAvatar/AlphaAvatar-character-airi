@@ -14,6 +14,7 @@ import { WidgetStage } from '@proj-airi/stage-ui/components/scenes'
 import { useLive2d } from '@proj-airi/stage-ui/stores/live2d'
 import { breakpointsTailwind, useBreakpoints, useDark } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
+import { useRoute } from 'vue-router'
 
 // ---------- Live2D ----------
 const dark = useDark()
@@ -22,9 +23,11 @@ const { scale, position, positionInPercentageString } = storeToRefs(live2d)
 const breakpoints = useBreakpoints(breakpointsTailwind)
 
 // ---------- LiveKit ----------
-const url = import.meta.env.VITE_AIRI_LIVEKIT_URL as string
-const token = import.meta.env.VITE_AIRI_LIVEKIT_TOKEN as string
-const agentIdentity = import.meta.env.VITE_AIRI_AGENT_IDENTITY as string | undefined
+const route = useRoute()
+
+const url = route.query.livekitUrl as string
+const token = route.query.livekitToken as string
+const agentIdentity = route.query.agentIdentity as string | undefined
 
 const room = new Room()
 
